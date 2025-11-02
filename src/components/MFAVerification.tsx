@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { createSPASassClient } from '@/lib/supabase/client';
 import { CheckCircle, Smartphone } from 'lucide-react';
-import { Factor } from '@supabase/auth-js';
+// import { Factor } from '@supabase/auth-js';
 
 interface MFAVerificationProps {
     onVerified: () => void;
@@ -14,7 +14,7 @@ export function MFAVerification({ onVerified }: MFAVerificationProps) {
     const [verifyCode, setVerifyCode] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const [factors, setFactors] = useState<Factor[]>([]);
+    // const [factors, setFactors] = useState<Factor[]>([]);
     const [selectedFactorId, setSelectedFactorId] = useState<string>('');
     const [loadingFactors, setLoadingFactors] = useState(true);
 
@@ -30,7 +30,7 @@ export function MFAVerification({ onVerified }: MFAVerificationProps) {
             if (error) throw error;
 
             const totpFactors = data.totp || [];
-            setFactors(totpFactors);
+            // setFactors(totpFactors);
             console.log('totpFactors:', totpFactors);
 
             // If there's only one factor, select it automatically
@@ -93,19 +93,19 @@ export function MFAVerification({ onVerified }: MFAVerificationProps) {
         );
     }
 
-    if (factors.length === 0) {
-        return (
-            <Card className="w-full">
-                <CardContent className="py-8">
-                    <Alert variant="destructive">
-                        <AlertDescription>
-                            No authentication devices found. Please contact support.
-                        </AlertDescription>
-                    </Alert>
-                </CardContent>
-            </Card>
-        );
-    }
+    // if (factors.length === 0) {
+    //     return (
+    //         <Card className="w-full">
+    //             <CardContent className="py-8">
+    //                 <Alert variant="destructive">
+    //                     <AlertDescription>
+    //                         No authentication devices found. Please contact support.
+    //                     </AlertDescription>
+    //                 </Alert>
+    //             </CardContent>
+    //         </Card>
+    //     );
+    // }
 
     return (
         <Card className="w-full">
@@ -123,39 +123,39 @@ export function MFAVerification({ onVerified }: MFAVerificationProps) {
                 )}
 
                 <div className="space-y-4">
-                    {factors.length > 1 && (
-                        <div className="space-y-2">
-                            <label className="block text-sm font-medium text-gray-700">
-                                Select Authentication Device
-                            </label>
-                            <div className="grid gap-3">
-                                {factors.map((factor) => (
-                                    <button
-                                        key={factor.id}
-                                        onClick={() => setSelectedFactorId(factor.id)}
-                                        className={`flex items-center space-x-3 p-3 border rounded-lg transition-colors ${
-                                            selectedFactorId === factor.id
-                                                ? 'border-primary-500 bg-primary-50 text-primary-700'
-                                                : 'border-gray-200 hover:border-primary-200 hover:bg-gray-50'
-                                        }`}
-                                    >
-                                        <Smartphone className="h-5 w-5" />
-                                        <div className="flex-1 text-left">
-                                            <p className="font-medium">
-                                                {factor.friendly_name || 'Authenticator Device'}
-                                            </p>
-                                            <p className="text-sm text-gray-500">
-                                                Added on {new Date(factor.created_at).toLocaleDateString()}
-                                            </p>
-                                        </div>
-                                        {selectedFactorId === factor.id && (
-                                            <CheckCircle className="h-5 w-5 text-primary-500" />
-                                        )}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                    )}
+                    {/*{factors.length > 1 && (*/}
+                    {/*    <div className="space-y-2">*/}
+                    {/*        <label className="block text-sm font-medium text-gray-700">*/}
+                    {/*            Select Authentication Device*/}
+                    {/*        </label>*/}
+                    {/*        <div className="grid gap-3">*/}
+                    {/*            {factors.map((factor) => (*/}
+                    {/*                <button*/}
+                    {/*                    key={factor.id}*/}
+                    {/*                    onClick={() => setSelectedFactorId(factor.id)}*/}
+                    {/*                    className={`flex items-center space-x-3 p-3 border rounded-lg transition-colors ${*/}
+                    {/*                        selectedFactorId === factor.id*/}
+                    {/*                            ? 'border-primary-500 bg-primary-50 text-primary-700'*/}
+                    {/*                            : 'border-gray-200 hover:border-primary-200 hover:bg-gray-50'*/}
+                    {/*                    }`}*/}
+                    {/*                >*/}
+                    {/*                    <Smartphone className="h-5 w-5" />*/}
+                    {/*                    <div className="flex-1 text-left">*/}
+                    {/*                        <p className="font-medium">*/}
+                    {/*                            {factor.friendly_name || 'Authenticator Device'}*/}
+                    {/*                        </p>*/}
+                    {/*                        <p className="text-sm text-gray-500">*/}
+                    {/*                            Added on {new Date(factor.created_at).toLocaleDateString()}*/}
+                    {/*                        </p>*/}
+                    {/*                    </div>*/}
+                    {/*                    {selectedFactorId === factor.id && (*/}
+                    {/*                        <CheckCircle className="h-5 w-5 text-primary-500" />*/}
+                    {/*                    )}*/}
+                    {/*                </button>*/}
+                    {/*            ))}*/}
+                    {/*        </div>*/}
+                    {/*    </div>*/}
+                    {/*)}*/}
 
                     <div className="space-y-2">
                         <label className="block text-sm font-medium text-gray-700">

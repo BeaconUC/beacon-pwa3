@@ -5,7 +5,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useGlobal } from '@/lib/context/GlobalContext';
 import { createSPASassClientAuthenticated as createSPASassClient } from '@/lib/supabase/client';
 import { Key, User, CheckCircle } from 'lucide-react';
-import { MFASetup } from '@/components/MFASetup';
+import MFASetup from '@/components/MFASetup';
 
 export default function UserSettingsPage() {
     const { user } = useGlobal();
@@ -147,11 +147,11 @@ export default function UserSettingsPage() {
                         </CardContent>
                     </Card>
 
-                    <MFASetup
-                        onStatusChange={() => {
-                            setSuccess('Two-factor authentication settings updated successfully');
-                        }}
-                    />
+                    {/*<MFASetup*/}
+                    {/*    onStatusChange={() => {*/}
+                    {/*        setSuccess('Two-factor authentication settings updated successfully');*/}
+                    {/*    }}*/}
+                    {/*/>*/}
                 </div>
             </div>
         </div>

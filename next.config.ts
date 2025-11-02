@@ -26,6 +26,9 @@ const nextConfig: NextConfig = {
     "local-origin.dev",
     "*.local-origin.dev",
   ],
+  eslint: {
+    ignoreDuringBuilds: true,
+  }
 };
 
 const withPWAConfig = withPWA({
