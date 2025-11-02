@@ -57,105 +57,105 @@ export default function RegisterPage() {
                 </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                        Email address
-                    </label>
-                    <div className="mt-1">
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            autoComplete="email"
-                            required
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500"
-                        />
-                    </div>
-                </div>
+            {/*<form onSubmit={handleSubmit} className="space-y-6">*/}
+            {/*    <div>*/}
+            {/*        <label htmlFor="email" className="block text-sm font-medium text-gray-700">*/}
+            {/*            Email address*/}
+            {/*        </label>*/}
+            {/*        <div className="mt-1">*/}
+            {/*            <input*/}
+            {/*                id="email"*/}
+            {/*                name="email"*/}
+            {/*                type="email"*/}
+            {/*                autoComplete="email"*/}
+            {/*                required*/}
+            {/*                value={email}*/}
+            {/*                onChange={(e) => setEmail(e.target.value)}*/}
+            {/*                className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500"*/}
+            {/*            />*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
 
-                <div>
-                    <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                        Password
-                    </label>
-                    <div className="mt-1">
-                        <input
-                            id="password"
-                            name="password"
-                            type="password"
-                            autoComplete="new-password"
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500"
-                        />
-                    </div>
-                </div>
+            {/*    <div>*/}
+            {/*        <label htmlFor="password" className="block text-sm font-medium text-gray-700">*/}
+            {/*            Password*/}
+            {/*        </label>*/}
+            {/*        <div className="mt-1">*/}
+            {/*            <input*/}
+            {/*                id="password"*/}
+            {/*                name="password"*/}
+            {/*                type="password"*/}
+            {/*                autoComplete="new-password"*/}
+            {/*                required*/}
+            {/*                value={password}*/}
+            {/*                onChange={(e) => setPassword(e.target.value)}*/}
+            {/*                className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500"*/}
+            {/*            />*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
 
-                <div>
-                    <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-                        Confirm Password
-                    </label>
-                    <div className="mt-1">
-                        <input
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            type="password"
-                            autoComplete="new-password"
-                            required
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500"
-                        />
-                    </div>
-                </div>
+            {/*    <div>*/}
+            {/*        <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">*/}
+            {/*            Confirm Password*/}
+            {/*        </label>*/}
+            {/*        <div className="mt-1">*/}
+            {/*            <input*/}
+            {/*                id="confirmPassword"*/}
+            {/*                name="confirmPassword"*/}
+            {/*                type="password"*/}
+            {/*                autoComplete="new-password"*/}
+            {/*                required*/}
+            {/*                value={confirmPassword}*/}
+            {/*                onChange={(e) => setConfirmPassword(e.target.value)}*/}
+            {/*                className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary-500 focus:outline-none focus:ring-primary-500"*/}
+            {/*            />*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
 
-                <div className="space-y-4">
-                    <div className="flex items-start">
-                        <div className="flex h-5 items-center">
-                            <input
-                                id="terms"
-                                name="terms"
-                                type="checkbox"
-                                checked={acceptedTerms}
-                                onChange={(e) => setAcceptedTerms(e.target.checked)}
-                                className="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
-                            />
-                        </div>
-                        <div className="ml-3 text-sm">
-                            <label htmlFor="terms" className="text-gray-600">
-                                I agree to the{' '}
-                                <Link
-                                    href="/legal/terms"
-                                    className="font-medium text-primary-600 hover:text-primary-500"
-                                    target="_blank"
-                                >
-                                    Terms of Service
-                                </Link>{' '}
-                                and{' '}
-                                <Link
-                                    href="/legal/privacy"
-                                    className="font-medium text-primary-600 hover:text-primary-500"
-                                    target="_blank"
-                                >
-                                    Privacy Policy
-                                </Link>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="flex w-full justify-center rounded-md border border-transparent bg-primary-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50"
-                    >
-                        {loading ? 'Creating account...' : 'Create account'}
-                    </button>
-                </div>
-            </form>
+            {/*    <div className="space-y-4">*/}
+            {/*        <div className="flex items-start">*/}
+            {/*            <div className="flex h-5 items-center">*/}
+            {/*                <input*/}
+            {/*                    id="terms"*/}
+            {/*                    name="terms"*/}
+            {/*                    type="checkbox"*/}
+            {/*                    checked={acceptedTerms}*/}
+            {/*                    onChange={(e) => setAcceptedTerms(e.target.checked)}*/}
+            {/*                    className="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"*/}
+            {/*                />*/}
+            {/*            </div>*/}
+            {/*            <div className="ml-3 text-sm">*/}
+            {/*                <label htmlFor="terms" className="text-gray-600">*/}
+            {/*                    I agree to the{' '}*/}
+            {/*                    <Link*/}
+            {/*                        href="/legal/terms"*/}
+            {/*                        className="font-medium text-primary-600 hover:text-primary-500"*/}
+            {/*                        target="_blank"*/}
+            {/*                    >*/}
+            {/*                        Terms of Service*/}
+            {/*                    </Link>{' '}*/}
+            {/*                    and{' '}*/}
+            {/*                    <Link*/}
+            {/*                        href="/legal/privacy"*/}
+            {/*                        className="font-medium text-primary-600 hover:text-primary-500"*/}
+            {/*                        target="_blank"*/}
+            {/*                    >*/}
+            {/*                        Privacy Policy*/}
+            {/*                    </Link>*/}
+            {/*                </label>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*    <div>*/}
+            {/*        <button*/}
+            {/*            type="submit"*/}
+            {/*            disabled={loading}*/}
+            {/*            className="flex w-full justify-center rounded-md border border-transparent bg-primary-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50"*/}
+            {/*        >*/}
+            {/*            {loading ? 'Creating account...' : 'Create account'}*/}
+            {/*        </button>*/}
+            {/*    </div>*/}
+            {/*</form>*/}
 
             <SSOButtons onError={setError}/>
 
