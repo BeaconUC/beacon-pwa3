@@ -1,6 +1,6 @@
 'use client';
 
-import { createSPAClient } from '@/lib/supabase/client';
+import { createSpaClient } from '@/lib/supabase/client';
 import Link from "next/link";
 
 type Provider = 'github' | 'google' | 'facebook' | 'apple';
@@ -69,7 +69,7 @@ function getEnabledProviders(): Provider[] {
 export default function SSOButtons({ onError }: SSOButtonsProps) {
     const handleSSOLogin = async (provider: Provider) => {
         try {
-            const supabase = createSPAClient();
+            const supabase = createSpaClient();
             const { error } = await supabase.auth.signInWithOAuth({
                 provider,
                 options: {

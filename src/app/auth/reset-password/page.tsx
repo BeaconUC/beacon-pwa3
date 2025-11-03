@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { createSPASassClient } from '@/lib/supabase/client';
+import { createSpaBeaconClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
 import { CheckCircle, Key } from 'lucide-react';
 
@@ -17,7 +17,7 @@ export default function ResetPasswordPage() {
     useEffect(() => {
         const checkSession = async () => {
             try {
-                const supabase = await createSPASassClient();
+                const supabase = await createSpaBeaconClient();
                 const { data: { user }, error } = await supabase.getSupabaseClient().auth.getUser();
 
                 if (error || !user) {
@@ -48,7 +48,7 @@ export default function ResetPasswordPage() {
         setLoading(true);
 
         try {
-            const supabase = await createSPASassClient();
+            const supabase = await createSpaBeaconClient();
             const { error } = await supabase.getSupabaseClient().auth.updateUser({
                 password: newPassword
             });
