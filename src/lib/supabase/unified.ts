@@ -7,7 +7,7 @@ export enum ClientType {
 
 }
 
-export class SassClient {
+export class BeaconClient {
     private client: SupabaseClient<Database, "public", "public">;
     private clientType: ClientType;
 
@@ -17,40 +17,40 @@ export class SassClient {
 
     }
 
-    async loginEmail(email: string, password: string) {
-        return this.client.auth.signInWithPassword({
-            email: email,
-            password: password
-        });
-    }
-
-    async registerEmail(email: string, password: string) {
-        return this.client.auth.signUp({
-            email: email,
-            password: password
-        });
-    }
+    // async loginEmail(email: string, password: string) {
+    //     return this.client.auth.signInWithPassword({
+    //         email: email,
+    //         password: password
+    //     });
+    // }
+    //
+    // async registerEmail(email: string, password: string) {
+    //     return this.client.auth.signUp({
+    //         email: email,
+    //         password: password
+    //     });
+    // }
 
     async exchangeCodeForSession(code: string) {
         return this.client.auth.exchangeCodeForSession(code);
     }
 
-    async resendVerificationEmail(email: string) {
-        return this.client.auth.resend({
-            email: email,
-            type: 'signup'
-        })
-    }
+    // async resendVerificationEmail(email: string) {
+    //     return this.client.auth.resend({
+    //         email: email,
+    //         type: 'signup'
+    //     })
+    // }
 
-    async logout() {
-        const { error } = await this.client.auth.signOut({
-            scope: 'local',
-        });
-        if (error) throw error;
-        if(this.clientType === ClientType.SPA) {
-            window.location.href = '/auth/login';
-        }
-    }
+    // async logout() {
+    //     const { error } = await this.client.auth.signOut({
+    //         scope: 'local',
+    //     });
+    //     if (error) throw error;
+    //     if(this.clientType === ClientType.SPA) {
+    //         window.location.href = '/auth/login';
+    //     }
+    // }
 
     async uploadFile(myId: string, filename: string, file: File) {
         filename = filename.replace(/[^0-9a-zA-Z!\-_.*'()]/g, '_');
