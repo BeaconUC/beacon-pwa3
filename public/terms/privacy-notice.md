@@ -1,103 +1,157 @@
-# Privacy Notice
+**Last Updated:** November 5, 2025
 
-Last Updated: December 14, 2024
+---
 
-## 1. Company Information
+## 1. Introduction
 
-This Privacy Notice applies to:
-Company Name:
+This Privacy Notice explains how **Beacon** collects, uses, and protects personal information in compliance with the **Data Privacy Act of 2012 (Republic Act No. 10173)** and its Implementing Rules and Regulations.
 
-Tax number: 1234567890
+**Beacon** is a community-driven electrical outage reporting and management system developed for academic and public use in **Baguio City, Philippines** by **students of the University of the Cordilleras**.
 
-## 2. Introduction
+As the **Personal Information Controller (PIC)**, Beacon is responsible for ensuring that your personal information is handled lawfully, securely, and transparently.
 
-This Privacy Notice explains how we collect, use, disclose, and safeguard your information when you use SupaSasS services.
+---
 
-## 3. Information We Collect
+## 2. Information We Collect
 
-### 3.1 Personal Information
+### 2.1 Personal Information
+
+When you register or use our services, we may collect:
+
 - Email address
-- Account credentials
-- Payment information (processed by Paddle)
-- Usage data
+- First and last name
+- Phone number
 
-### 3.2 Business Information
-- Shopify store data (when using analysis tools)
-- Domain search queries
-- Analytics data
+### 2.2 Technical Information
 
-### 3.3 Technical Information
+Automatically collected data may include:
+
 - IP address
-- Browser type
-- Device information
-- Cookies and similar technologies
+- Browser type and version
+- Device and operating system details
+- Cookies or similar technologies used for authentication and analytics
 
-## 4. How We Use Your Information
+---
 
-We use collected information for:
-- Providing and maintaining our services
-- Processing payments
-- Improving our services
-- Communicating with you
-- Analyzing usage patterns
-- Preventing fraud
+## 3. Purpose and Legal Basis for Processing
 
-## 5. Data Storage and Security
+We collect and process your information for the following purposes:
 
-### 5.1 Storage
-- Data is stored on secure servers
-- We use Supabase for database management
-- Payment data is handled by Paddle
+- To provide and maintain Beacon’s outage reporting services
+- To authenticate users and manage sessions
+- To communicate updates, alerts, and service notifications
+- To analyze usage for improving performance and reliability
+- To maintain the safety, security, and integrity of our systems
 
-### 5.2 Security Measures
-- Encryption in transit and at rest
-- Regular security audits
-- Access controls and monitoring
+Processing is based on:
 
-## 6. Data Sharing and Disclosure
+- **Your consent** — when you register and use the service
+- **Legitimate interests** of maintaining system security and service reliability
+- **Legal obligations** when disclosure is required by law or a government authority
 
-We may share information with:
-- Service providers (Paddle, Supabase)
-- Legal authorities when required
-- Business partners with your consent
+---
 
-## 7. Your Rights
+## 4. Data Storage and Security
 
-You have the right to:
-- Access your personal data
-- Correct inaccurate data
-- Request data deletion
-- Object to processing
-- Data portability
+### 4.1 Storage
 
-## 8. Cookies and Tracking
+- Personal data and outage reports are securely stored using cloud-based **Supabase**.
+- Uploaded photos or attachments are stored in **Supabase Storage**.
+- Technical logs may also be temporarily processed through our Go-based API gateway.
 
-We use cookies for:
-- Authentication
-- Preferences
-- Analytics
-- Marketing (with consent)
+### 4.2 Security Measures
 
-## 9. International Data Transfers
+Beacon employs appropriate organizational, physical, and technical safeguards, including:
 
-- Data may be processed in various locations
-- We ensure appropriate safeguards
-- EU data protection standards applied
+- Encrypted data transmission (**HTTPS**)
+- Access control and authentication mechanisms
+- Role-based permissions
+- Regular system monitoring and updates
 
-## 10. Children's Privacy
+---
 
-- Services not intended for users under 18
-- We do not knowingly collect children's data
-- Parents may request data deletion
+## 5. Data Sharing and Disclosure
 
-## 11. Changes to Privacy Notice
+We do **not** sell, lease, or trade personal information.
 
-- We may update this notice periodically
-- Changes effective upon posting
-- Material changes notified via email
+Information may only be disclosed:
 
-## 12. Contact Information
+- When required by law, subpoena, or lawful government order
+- To authorized service providers (e.g., Supabase) that support our operations
+- With your explicit consent for collaboration, research, or public information purposes
 
-For privacy-related questions:
-Email: contact@supasass.com
+All third-party providers are bound by confidentiality and data protection obligations consistent with the Data Privacy Act.
 
+---
+
+## 6. Data Retention
+
+Personal data is retained only as long as necessary for service operation, legitimate academic or research purposes, or compliance with legal obligations.
+
+Data that is no longer needed is securely deleted or anonymized.
+
+Users may request earlier deletion where feasible.
+
+---
+
+## 7. Your Data Privacy Rights
+
+Under the **Data Privacy Act of 2012**, you have the following rights:
+
+- **Right to be informed** — to know how your data is collected and used
+- **Right to access** — to obtain a copy of your personal data upon request
+- **Right to rectification** — to correct inaccurate or outdated information
+- **Right to erasure or blocking** — to request deletion of your data
+- **Right to object** — to refuse processing in certain situations
+- **Right to data portability** — to receive your data in a structured format
+
+To exercise these rights, contact us using the details provided below. Requests will be processed in accordance with applicable laws and institutional procedures.
+
+---
+
+## 8. Cookies and Tracking Technologies
+
+Beacon uses cookies and local storage only for:
+
+- Login authentication and session management
+- Saving user preferences
+- Basic, anonymous analytics
+
+We do **not** use cookies for advertising or third-party tracking.
+
+---
+
+## 9. Children’s Privacy
+
+Beacon is intended for users aged **18 and above**.
+
+We do not knowingly collect or maintain personal information from minors.
+
+Parents or guardians may contact us to request deletion of any data inadvertently collected from minors.
+
+---
+
+## 10. Changes to This Privacy Notice
+
+Beacon may update this Privacy Notice from time to time.
+
+Material changes will be announced through the app or via email.
+
+The “Last Updated” date above indicates when this notice was last revised.
+
+---
+
+## 11. Contact Information
+
+For questions, concerns, or requests related to data privacy, please contact:
+
+**Email:**
+
+- jvr6623@students.uc-bcf.edu.ph
+
+If your concerns remain unresolved, you may contact the **National Privacy Commission (NPC)**:  
+**Website:** [https://privacy.gov.ph/contactus/](https://privacy.gov.ph/contactus/)
+
+---
+
+© 2025 The Beacon Authors
