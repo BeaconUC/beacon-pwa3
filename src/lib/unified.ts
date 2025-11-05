@@ -1,23 +1,23 @@
 import {SupabaseClient} from "@supabase/supabase-js";
 import {Database} from "@/lib/types";
 import {PublicBeaconService} from "@buf/beacon-uc_api-schemas.bufbuild_es/beacon/v1/public_pb";
-import {createClient} from "@connectrpc/connect";
-import {createConnectTransport} from "@connectrpc/connect-node";
+import {type Client, createClient} from "@connectrpc/connect";
+import {createConnectTransport} from "@connectrpc/connect-web";
 
 const API_GATEWAY_URL = process.env.API_GATEWAY_URL!;
+const transport = createConnectTransport({
+    baseUrl: API_GATEWAY_URL,
+});
 
 class ApiGatewayClient {
-    private static instance: ReturnType<typeof createClient> | null = null;
+    private static instance: Client<typeof PublicBeaconService> | null = null;
 
     static getInstance(baseUrl: string = API_GATEWAY_URL) {
         if (!ApiGatewayClient.instance) {
-            ApiGatewayClient.instance = createClient(
+            ApiGatewayClient.instance = createClient<typeof PublicBeaconService>(
                 PublicBeaconService,
-                createConnectTransport({
-                    httpVersion: "1.1",
-                    baseUrl,
-                })
-            );
+                transport
+            )
         }
         return ApiGatewayClient.instance;
     }
@@ -30,13 +30,13 @@ export enum ClientType {
 
 export class BeaconClient {
     private readonly supabaseClient: SupabaseClient<Database, "public", "public">;
-    private readonly apiGatewayClient;
+    private readonly apiGatewayClient: Client<typeof PublicBeaconService>;
     private clientType: ClientType;
 
     constructor(
         client: SupabaseClient<Database, "public", "public">,
         clientType: ClientType,
-        apiGatewayClient: ReturnType<typeof createClient> = ApiGatewayClient.getInstance()
+        apiGatewayClient: Client<typeof PublicBeaconService> = ApiGatewayClient.getInstance()
     ) {
         this.supabaseClient = client;
         this.clientType = clientType;
