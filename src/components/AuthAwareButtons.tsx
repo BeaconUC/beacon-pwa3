@@ -11,8 +11,8 @@ export default function AuthAwareButtons({ variant = 'primary' }) {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const supabase = await createSpaBeaconClient();
-                const { data: { user } } = await supabase.getSupabaseClient().auth.getUser();
+                const beaconClient = await createSpaBeaconClient();
+                const { data: { user } } = await beaconClient.getSupabaseClient().auth.getUser();
                 setIsAuthenticated(!!user);
             } catch (error) {
                 console.error('Error checking auth status:', error);

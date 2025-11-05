@@ -21,13 +21,13 @@ export default function LoginPage() {
         setLoading(true);
 
         try {
-            const client = await createSpaBeaconClient();
-            const { error: signInError } = await client.loginEmail(email, password);
+            const beaconClient = await createSpaBeaconClient();
+            const { error: signInError } = await beaconClient.loginEmail(email, password);
 
             if (signInError) throw signInError;
 
             // Check if MFA is required
-            const supabase = client.getSupabaseClient();
+            const supabase = beaconClient.getSupabaseClient();
             const { data: mfaData, error: mfaError } = await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
 
             if (mfaError) throw mfaError;
