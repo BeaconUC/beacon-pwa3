@@ -70,7 +70,7 @@ export default function RootLayout({
 		        {children}
 	        </ThemeProvider>
         </AppRouterCacheProvider>
-      <Analytics />
+      {/*<Analytics />*/}
       <CookieConsent />
       { gaID && (
           <GoogleAnalytics gaId={gaID}/>

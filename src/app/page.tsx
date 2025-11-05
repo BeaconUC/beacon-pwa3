@@ -210,21 +210,21 @@ export default function Home() {
                   </li>
                 </ul>
               </div>
-              {/*<div>*/}
-              {/*  <h4 className="text-sm font-semibold text-gray-900">Legal</h4>*/}
-              {/*  <ul className="mt-4 space-y-2">*/}
-              {/*    <li>*/}
-              {/*      <Link href="/legal/privacy" className="text-gray-600 hover:text-gray-900">*/}
-              {/*        Privacy*/}
-              {/*      </Link>*/}
-              {/*    </li>*/}
-              {/*    <li>*/}
-              {/*      <Link href="/legal/terms" className="text-gray-600 hover:text-gray-900">*/}
-              {/*        Terms*/}
-              {/*      </Link>*/}
-              {/*    </li>*/}
-              {/*  </ul>*/}
-              {/*</div>*/}
+              <div>
+                <h4 className="text-sm font-semibold text-gray-900">Legal</h4>
+                <ul className="mt-4 space-y-2">
+                  <li>
+                    <Link href="/legal/privacy" className="text-gray-600 hover:text-gray-900">
+                      Privacy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/legal/terms" className="text-gray-600 hover:text-gray-900">
+                      Terms
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div className="mt-8 pt-8 border-t border-gray-200">
               <p className="text-center text-gray-600">
