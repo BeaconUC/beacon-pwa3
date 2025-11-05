@@ -22,45 +22,43 @@ import Confetti from '@/components/Confetti';
 
 import { Database } from '@/lib/types';
 
-type Task = Database['public']['Tables']['todo_list']['Row'];
-type NewTask = Database['public']['Tables']['todo_list']['Insert'];
+type Outage = Database['public']['Tables']['outages']['Row'];
+type NewOutage = Database['public']['Tables']['outages']['Insert'];
 
-interface CreateTaskDialogProps {
-    onTaskCreated: () => Promise<void>;
+interface CreateOutageDialogProps {
+    onOutageCreated: () => Promise<void>;
 }
 
-function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
+function CreateOutageDialog({ onOutageCreated }: CreateOutageDialogProps) {
     const { user } = useGlobal();
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string>('');
-    const [newTaskTitle, setNewTaskTitle] = useState<string>('');
-    const [newTaskDescription, setNewTaskDescription] = useState<string>('');
-    const [isUrgent, setIsUrgent] = useState<boolean>(false);
+
+    // const [newOutageTitle, setNewOutageTitle] = useState<string>('');
+    const [newOutageDescription, setNewOutageDescription] = useState<string>('');
+    const [newOutageLocation, setNewOutageLocation] = useState<string>('');
+    // const [isUrgent, setIsUrgent] = useState<boolean>(false);
 
     const handleAddTask = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (!newTaskTitle.trim() || !user?.id) return;
+        // if (!newOutageTitle.trim() || !user?.id) return;
 
         try {
             setLoading(true);
-            const supabase = await createSpaClient();
-            const newTask: NewTask = {
-                title: newTaskTitle.trim(),
-                description: newTaskDescription.trim() || null,
-                urgent: isUrgent,
-                owner: user.id,
-                done: false
+            const supabase = await createSpaBeaconClientAuthenticated();
+            const newOutage: NewOutage = {
+                description: newOutageDescription.trim() || null
             };
 
-            const { error: supabaseError } = await supabase.createTask(newTask);
+            const { error: supabaseError } = await supabase.createOutageReport(newOutage);
             if (supabaseError) throw supabaseError;
 
-            setNewTaskTitle('');
-            setNewTaskDescription('');
+            // setNewOutageTitle('');
+            setNewOutageDescription('');
             setIsUrgent(false);
             setOpen(false);
-            await onTaskCreated();
+            await onOutageCreated();
         } catch (err) {
             setError('Failed to add task');
             console.error('Error adding task:', err);
@@ -88,19 +86,19 @@ function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
                     </Alert>
                 )}
                 <form onSubmit={handleAddTask} className="space-y-4">
-                    <div className="space-y-2">
-                        <Input
-                            type="text"
-                            value={newTaskTitle}
-                            onChange={(e) => setNewTaskTitle(e.target.value)}
-                            placeholder="Task title"
-                            required
-                        />
-                    </div>
+                    {/*<div className="space-y-2">*/}
+                    {/*    <Input*/}
+                    {/*        type="text"*/}
+                    {/*        value={newOutageTitle}*/}
+                    {/*        onChange={(e) => setNewOutageTitle(e.target.value)}*/}
+                    {/*        placeholder="Task title"*/}
+                    {/*        required*/}
+                    {/*    />*/}
+                    {/*</div>*/}
                     <div className="space-y-2">
                         <Textarea
-                            value={newTaskDescription}
-                            onChange={(e) => setNewTaskDescription(e.target.value)}
+                            value={newOutageDescription}
+                            onChange={(e) => setNewOutageDescription(e.target.value)}
                             placeholder="Task description (optional)"
                             rows={3}
                         />
@@ -132,7 +130,7 @@ function CreateTaskDialog({ onTaskCreated }: CreateTaskDialogProps) {
 
 export default function TaskManagementPage() {
     const { user } = useGlobal();
-    const [tasks, setTasks] = useState<Task[]>([]);
+    const [tasks, setTasks] = useState<Outage[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [initialLoading, setInitialLoading] = useState<boolean>(true);
     const [error, setError] = useState<string>('');
@@ -207,7 +205,7 @@ export default function TaskManagementPage() {
                         <CardTitle>Task Management</CardTitle>
                         <CardDescription>Manage your tasks and to-dos</CardDescription>
                     </div>
-                    <CreateTaskDialog onTaskCreated={loadTasks} />
+                    <CreateOutageDialog onOutageCreated={loadTasks} />
                 </CardHeader>
                 <CardContent>
                     {error && (
