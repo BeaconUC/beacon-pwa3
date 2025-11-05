@@ -12,6 +12,7 @@
     "@buf/beacon-uc_api-schemas.bufbuild_es": "2.10.0-20251104123710-09af06d7c374.1",
     "@connectrpc/connect": "^2.1.0",
     "@connectrpc/connect-node": "^2.1.0",
+    "@connectrpc/connect-web": "^2.1.0",
     "@ducanh2912/next-pwa": "^10.2.9",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
