@@ -30,6 +30,15 @@ const nextConfig: NextConfig = {
 
 const withPWAConfig = withPWA({
   dest: "public",
+  disable: process.env.NODE_ENV === "development",
+  workboxOptions: {
+    runtimeCaching: [
+      {
+        urlPattern: ({ url }) => !url.pathname.startsWith("/api/"),
+        handler: "NetworkFirst",
+      },
+    ],
+  },
 })(nextConfig);
 
 export default withPWAConfig;
