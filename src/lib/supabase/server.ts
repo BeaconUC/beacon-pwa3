@@ -1,6 +1,6 @@
 import {createServerClient} from '@supabase/ssr'
 import {cookies} from 'next/headers'
-import {ClientType, BeaconClient} from "@/lib/supabase/unified";
+import {ClientType, BeaconClient} from "@/lib/unified";
 import {Database} from "@/lib/types";
 
 export async function createSSRClient() {

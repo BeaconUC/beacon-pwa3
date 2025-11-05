@@ -1,5 +1,5 @@
 import {createBrowserClient} from '@supabase/ssr'
-import {ClientType, BeaconClient} from "@/lib/supabase/unified";
+import {ClientType, BeaconClient} from "@/lib/unified";
 import {Database} from "@/lib/types";
 
 export function createSpaClient() {
