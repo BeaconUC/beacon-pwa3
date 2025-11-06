@@ -32,13 +32,7 @@ export default function FileManagementPage() {
   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
-  useEffect(() => {
-    if (user?.id) {
-      loadFiles();
-    }
-  }, [user]);
-
-  const loadFiles = async () => {
+  const loadFiles = useCallback(async () => {
     try {
       setLoading(true);
       setError('');
@@ -53,9 +47,9 @@ export default function FileManagementPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user]);
 
-  const handleFileUpload = async (file: File) => {
+  const handleFileUpload = useCallback(async (file: File) => {
     try {
       setUploading(true);
       setError('');
@@ -75,7 +69,14 @@ export default function FileManagementPage() {
     } finally {
       setUploading(false);
     }
-  };
+  }, [user, loadFiles]);
+
+  useEffect(() => {
+    if (user?.id) {
+      loadFiles();
+    }
+  }, [user, loadFiles]);
+
 
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -95,7 +96,7 @@ export default function FileManagementPage() {
     if (files.length > 0) {
       handleFileUpload(files[0]);
     }
-  }, []);
+  }, [handleFileUpload]);
 
 
   const handleDragEnter = useCallback((e: React.DragEvent) => {
