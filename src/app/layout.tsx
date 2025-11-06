@@ -1,7 +1,6 @@
 import type {Metadata, Viewport} from "next";
 import "./globals.css";
 import CookieConsent from "@/components/Cookies";
-import {GoogleAnalytics} from '@next/third-parties/google'
 import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
 import {Inter} from 'next/font/google';
 import {ThemeProvider} from '@mui/material/styles';
@@ -60,7 +59,7 @@ export default function RootLayout({
   // if(!theme) {
   //   theme = "theme-sass3"
   // }
-  const gaID = process.env.NEXT_PUBLIC_GOOGLE_TAG;
+  // const gaID = process.env.NEXT_PUBLIC_GOOGLE_TAG;
   return (
     <html lang="en" className={inter.variable}>
     <body>
@@ -71,9 +70,9 @@ export default function RootLayout({
     </AppRouterCacheProvider>
     {/*<Analytics />*/}
     <CookieConsent/>
-    {gaID && (
+    {/* {gaID && (
       <GoogleAnalytics gaId={gaID}/>
-    )}
+    )} */}
     </body>
     </html>
   );

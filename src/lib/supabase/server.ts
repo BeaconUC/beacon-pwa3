@@ -3,7 +3,7 @@ import {cookies} from 'next/headers'
 import {BeaconClient, ClientType} from "@/lib/unified";
 import {Database} from "@/lib/types";
 
-export async function createSSRClient() {
+async function createSSRClient() {
   const cookieStore = await cookies()
 
   return createServerClient<Database, "public", Database["public"]>(

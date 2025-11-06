@@ -18,7 +18,7 @@ const transport = createConnectTransport({
 class ApiGatewayClient {
   private static instance: Client<typeof PublicBeaconService> | null = null;
 
-  static getInstance(baseUrl: string = API_GATEWAY_URL) {
+  static getInstance() {
     if (!ApiGatewayClient.instance) {
       ApiGatewayClient.instance = createClient<typeof PublicBeaconService>(
         PublicBeaconService,
@@ -37,7 +37,7 @@ export enum ClientType {
 export class BeaconClient {
   private readonly supabaseClient: SupabaseClient<Database, "public", "public">;
   private readonly apiGatewayClient: Client<typeof PublicBeaconService>;
-  private clientType: ClientType;
+  private readonly clientType: ClientType;
 
   constructor(
     client: SupabaseClient<Database, "public", "public">,
@@ -113,7 +113,7 @@ export class BeaconClient {
     order: string = 'created_at',
     is_resolved: boolean | null = false
   ) {
-    let query = this.supabaseClient.from('outages')
+    const query = this.supabaseClient.from('outages')
       .select('*')
       .range(page * pageSize - pageSize, page * pageSize - 1)
       .order(order)

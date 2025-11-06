@@ -1,6 +1,6 @@
 'use client';
 
-import {createSpaClient} from '@/lib/supabase/client';
+import {createSpaBeaconClient} from '@/lib/supabase/client';
 import Link from "next/link";
 
 type Provider = 'github' | 'google' | 'facebook' | 'apple';
@@ -82,8 +82,8 @@ function getEnabledProviders(): Provider[] {
 export default function SSOButtons({onError}: SSOButtonsProps) {
   const handleSSOLogin = async (provider: Provider) => {
     try {
-      const supabase = createSpaClient();
-      const {error} = await supabase.auth.signInWithOAuth({
+      const beaconClient = await createSpaBeaconClient();
+      const {error} = await beaconClient.getSupabaseClient().auth.signInWithOAuth({
         provider,
         options: {
           redirectTo: `${window.location.origin}/api/auth/callback`,
@@ -144,7 +144,7 @@ export default function SSOButtons({onError}: SSOButtonsProps) {
           <div className="w-full border-t border-gray-300"/>
         </div>
         <div className="relative flex justify-center text-sm">
-          <Link href="" className="bg-white px-2 text-gray-500">
+          <Link href="/" className="bg-white px-2 text-gray-500">
             Or continue as guest
           </Link>
           {/*<span className="bg-white px-2 text-gray-500">Or continue as guest</span>*/}
