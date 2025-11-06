@@ -1,5 +1,6 @@
 import type {Metadata, Viewport} from "next";
 import "./globals.css";
+import 'leaflet/dist/leaflet.css';
 import CookieConsent from "@/components/Cookies";
 import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
 import {Inter} from 'next/font/google';
